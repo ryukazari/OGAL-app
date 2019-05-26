@@ -1,0 +1,22 @@
+<div class=" mat-elevation-z8 example-container" style="margin: 30px; padding: 30px;">
+  <div class="example-container">
+    
+      <mat-form-field>
+        <input matInput placeholder="Email Origen:" [value]="emailOrigen" disabled>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Email Destino" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <br>
+    <mat-form-field>
+      <input matInput placeholder="Asunto">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Mensaje"></textarea>
+    </mat-form-field>
+  </div>
+
+</div>

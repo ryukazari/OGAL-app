@@ -1,0 +1,46 @@
+<div class="bg-modal">
+    <div class="modal-contents">
+        <div class="titulo">
+            <div class="logo align-middle" style="position:relative">
+                <span style="position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 70%;
+                height: 30%;
+                margin: auto;
+                font-family: Roboto;
+                font-size: 1.9em"><i class="material-icons">account_balance</i> Asesoría Legal </span>
+            </div>
+            <div>
+                <img class="logo-unmsm" src="../../../assets/UNMSM.png"/>
+            </div>
+            <div class="descripcion" style="color: white">
+                Iniciar Sesión
+            </div>
+        </div>
+        <div class="contenido mt-4">
+            <form>
+                <mat-form-field class="" appearance="legacy">
+                    <mat-label>Usuario</mat-label>
+                    <input id="user" matInput  required>
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="">
+                        <mat-label>Contraseña</mat-label>
+                        <input  type="password" id="password" matInput  [type]="hide ? 'text' : 'password'" required>
+                        <mat-icon style="cursor:pointer" matSuffix (click)="hide = !hide">
+                            {{hide ?  'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+                <div class="form-group mt-4">
+                        <button mat-raised-button color="primary">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <span class=""> Quipucamayoc - 2019 </span>
+        </div>
+    </footer>
+</div>

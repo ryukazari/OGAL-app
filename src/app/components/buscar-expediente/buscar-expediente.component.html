@@ -1,0 +1,48 @@
+<div class=" mat-elevation-z8 example-container" style="margin: 30px; padding: 30px;">
+  <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Por Filtros">
+          <div class="example-container">
+            <mat-form-field>
+              <mat-select placeholder="Distrito Judicial">
+                  <mat-option *ngFor="let distrito of distritos_judiciales" [value]="distrito">{{distrito}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Año">
+                  <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Número de Expediente">
+            </mat-form-field>
+          </div>
+          <button mat-stroked-button>Consultar</button>
+      </mat-tab>
+      <mat-tab label="Por Código de Expedientes">
+        <div style="display: inline-block;">
+          <mat-form-field [floatLabel]=never>
+            <input matInput size=5>
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>-
+          <mat-form-field [floatLabel]=never>
+            <input matInput >
+          </mat-form-field>
+        </div>
+        <button mat-stroked-button>Consultar</button>
+      </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,23 @@
+.example-container {
+    display: block;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+.example-container > * {
+    width: 40%;
+  }
+.example-full-width {
+  width: 90%;
+}
+.secondForm{
+  text-align: center;
+  padding-left: 15px;
+}
+.mat-form-field {
+    margin: 20px;
+}
+
+.mat-form-field{
+    margin: 10px;
+}

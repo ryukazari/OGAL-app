@@ -1,0 +1,33 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-card:hover{
+    cursor: pointer;
+    background-color: #e9ebeb;
+}
+.flex-spacer[_ngcontent-c1] {
+    flex-grow: 2;
+}
+div.flex-spacer{
+    display: flex;
+}
+.push-right {
+  margin-left: auto;
+}
+.combobox{
+    margin-right: 20px;
+}
+
+.footer {
+    text-align: center;
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #151d4d;
+    color: whitesmoke;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+}

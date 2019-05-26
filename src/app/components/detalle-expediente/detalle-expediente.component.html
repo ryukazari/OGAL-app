@@ -1,0 +1,166 @@
+<mat-tab-group >
+    <mat-tab label="Reporte de Expediente">
+      <div class=" mat-elevation-z8 example-container" style="margin: 30px; padding-bottom: 10px;">
+        <mat-form-field>
+          <input matInput placeholder="N° de Expediente" [disabled]="true">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Distrito Judicial" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Órgano Jurisdiccional" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Especialista Legal" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Juez" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Proceso" [disabled]="estadoComponente1"> 
+          </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="fechaInicio" placeholder="Fecha de Inicio" [disabled]="estadoComponente1">
+          <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+          <mat-datepicker #fechaInicio></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Especialidad" [disabled]="estadoComponente1"> 
+          </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Observación" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Estado" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Materia(s)" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="fechaFin" placeholder="Fecha de Conclusión" [disabled]="estadoComponente1">
+          <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+          <mat-datepicker #fechaFin></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Etapa Procesal" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Motivo de Conclusión" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Ubicación" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Sumilla" [disabled]="estadoComponente1"> 
+        </mat-form-field>
+        <button mat-stroked-button *ngIf="estadoComponente1">Ver Información Adjunta</button>
+        <button mat-stroked-button *ngIf="estadoComponente1" (click)="cambiarMensaje(1)">Editar</button>
+        
+        <button mat-stroked-button *ngIf="!estadoComponente1">Guardar</button>
+        <button mat-stroked-button *ngIf="!estadoComponente1" (click)="cambiarMensaje(1)">Cancelar</button>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Partes Procesales">
+      <div  class="mat-elevation-z8" style="margin: 30px; padding-right:22px;">
+        <table mat-table [dataSource]="dataSource" style="width: 100%; margin: 10px;" >
+          <ng-container matColumnDef="parte">
+            <th mat-header-cell *matHeaderCellDef> Parte </th>
+            <td mat-cell *matCellDef="let element">{{element.parte}} </td>
+          </ng-container>
+          <ng-container matColumnDef="tipopersona">
+            <th mat-header-cell *matHeaderCellDef> Tipo de Persona </th>
+            <td mat-cell *matCellDef="let element">{{element.tipopersona}} </td>
+          </ng-container>
+          <ng-container matColumnDef="apellidoP">
+            <th mat-header-cell *matHeaderCellDef> Apellido Paterno/Razón Social </th>
+            <td mat-cell *matCellDef="let element">{{element.apellidoP}} </td>
+          </ng-container>
+          <ng-container matColumnDef="apellidoM">
+            <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
+            <td mat-cell *matCellDef="let element">{{element.apellidoM}} </td>
+          </ng-container>
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombres </th>
+            <td mat-cell *matCellDef="let element">{{element.nombre}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <button mat-stroked-button *ngIf="estadoComponente2">Editar</button>     
+        <button mat-stroked-button *ngIf="!estadoComponente2">Guardar</button>
+        <button mat-stroked-button *ngIf="!estadoComponente2" (click)="cambiarMensaje(2)">Cancelar</button> 
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Seguimiento del Expediente">
+        
+        <div class="mat-elevation-z8"  style="margin: 30px; padding-right:22px;">
+            <table mat-table [dataSource]="dataSource2" style="width: 100%; margin: 10px;" >
+                <ng-container matColumnDef="seguimiento">
+                    <th mat-header-cell *matHeaderCellDef>Seguimiento del Expediente {{numero}}</th>
+                    <td mat-cell *matCellDef="let element" style="padding-top: 10px; padding-bottom: 10px;" > 
+                      <div class=" mat-elevation-z8 " style="padding-bottom: 15px;">
+                        <div class="example-container" style="margin: 30px;">
+                          <mat-form-field>
+                            <input matInput placeholder="Fecha de Ingreso" [value]="element.fecha" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Acto" [value]="element.acto" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Resolución" [value]="element.resolucion" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Folios" [value]="element.folios" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Tipo de Notificación" [value]="element.tiponotificacion" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Proveído" [value]="element.proveido" [disabled]="estadoComponente3"> 
+                          </mat-form-field>
+                        </div>
+                        <div class="secondForm">
+                          <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Sumilla" [value]="element.sumilla" [disabled]="estadoComponente3"></textarea>
+                          </mat-form-field>
+                          <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Descripción del Usuario" [value]="element.descripcionusuario" [disabled]="estadoComponente3"></textarea>
+                          </mat-form-field>
+                        </div>
+                        <button mat-stroked-button *ngIf="estadoComponente3">Descargar</button>
+                        <button mat-stroked-button *ngIf="estadoComponente3" (click)="cambiarMensaje(3)">Editar</button>
+                        <div class="mat-elevation-z8 secondForm" style="margin: 5px; ">
+                          <span>Notificación {{element.notificacion.numero}}</span>
+                          <div class="example-container" style="margin: 30px;">
+                            <mat-form-field>
+                              <input matInput placeholder="Destinatario" [value]="element.notificacion.destinatario" [disabled]="estadoComponente3"> 
+                            </mat-form-field>
+                            <mat-form-field>
+                              <input matInput placeholder="Anexo(s)" [value]="element.notificacion.anexo" [disabled]="estadoComponente3"> 
+                            </mat-form-field>
+                            <mat-form-field >
+                              <input matInput placeholder="Fecha de envio" [value]="element.notificacion.fechaenvio" [disabled]="estadoComponente3"> 
+                            </mat-form-field>
+                            <mat-form-field >
+                              <input matInput placeholder="Forma de entrega"  [disabled]="estadoComponente3"> 
+                            </mat-form-field>
+                            <button mat-stroked-button *ngIf="estadoComponente3">Detalles</button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+            </table>
+            <button mat-stroked-button *ngIf="estadoComponente3">Agregar Seguimiento</button>
+            <button mat-stroked-button *ngIf="estadoComponente3">Eliminar Seguimiento</button>     
+            <button mat-stroked-button *ngIf="!estadoComponente3">Guardar</button>
+            <button mat-stroked-button *ngIf="!estadoComponente3" (click)="cambiarMensaje(3)">Cancelar</button> 
+        <mat-paginator [pageSizeOptions]="[1]" showFirstLastButtons></mat-paginator>
+        </div>
+
+    </mat-tab>
+</mat-tab-group>
